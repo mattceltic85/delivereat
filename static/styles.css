@@ -1,3 +1,129 @@
 body {
   margin: 0;
 }
+
+.top-container {
+  background-color: #f1f1f1;
+  padding: 100px;
+  text-align: center;
+  font-size: 6rem;
+}
+
+.header {
+  padding: 10px 16px;
+  background-image: URL("/static/header.jpg");
+  background-size: cover;
+  height: 50rem;
+}
+
+.header__title {
+  font-family: "Fredericka the Great", cursive;
+  font-size: 6rem;
+  text-align: center;
+  margin-left: 13rem;
+  margin-top: 14rem;
+}
+
+.header__footer {
+  font-family: "Fredericka the Great", cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-left: 13rem;
+  margin-top: -0.5rem;
+}
+
+.header__basket {
+  background-color: #d17c40;
+  margin-top: -1rem;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.basketItems {
+  font-size: 2rem;
+  min-height: 5rem;
+  margin-top: 1rem;
+  margin-right: 3rem;
+  border-style: dashed;
+}
+
+.basket__item {
+  margin-top: 3rem;
+  margin-left: 3rem;
+  font-size: 2rem;
+  text-align: left;
+  border-style: dashed;
+  min-width: 55rem;
+}
+
+.basket__numberAlign {
+  text-align: right;
+}
+
+.basket__tableWidth {
+  min-width: 8rem;
+  text-align: right;
+}
+
+.basket__total {
+  margin-left: 3rem;
+  font-size: 2.5rem;
+}
+
+.basket__default {
+  font-size: 2rem;
+  min-height: 5rem;
+  margin-top: 3rem;
+  border-style: dashed;
+  margin-left: 3rem;
+  min-width: 55rem;
+  margin-right: 3rem;
+}
+.menuCard {
+  display: flex;
+  font-family: "Fredericka the Great", cursive;
+  font-size: 2rem;
+  text-align: left;
+  flex-direction: column;
+  line-height: 0.1rem;
+  margin-bottom: 3rem;
+  margin-left: 0.9rem;
+  border-style: solid;
+  margin-right: 3rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.menuCard__label {
+  font-size: 1.23rem;
+  text-align: center;
+  font-family: "Fredericka the Great", cursive;
+  line-height: 2rem;
+}
+
+.menuCard__inputs {
+  display: flex;
+  flex-direction: row;
+  height: 2rem;
+}
+.menuItemList {
+  font-style: italic;
+  font-size: 30px;
+}
+
+.menuItemList__form {
+}
+
+.menuItemList__input {
+  width: 10rem;
+  font-size: 1.5rem;
+  border-style: dashed;
+  margin-left: 1rem;
+}
+
+.menuItemList__button {
+  font-size: 1.23rem;
+  width: 10rem;
+  border-style: dashed;
+  margin-left: 1rem;
+}

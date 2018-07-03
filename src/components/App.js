@@ -2,14 +2,14 @@ import React from "react";
 import MenuItems from "./MenuItems";
 import Header from "./Header";
 import Basket from "./Basket";
-import OrderReview from "./OrderReview";
+import OrderHistory from "./OrderHistory";
 
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      menu: [],
+      menu: {},
       currentOrder: {},
       orderReview: []
     };
@@ -22,7 +22,7 @@ class App extends React.Component {
   componentDidMount() {
     fetch("/menu")
       .then(response => response.json())
-      .then(data => this.setState({ menu: Object.values(data) }))
+      .then(data => this.setState({ menu: data }))
       .catch(function(error) {
         console.log(error);
       });
@@ -42,7 +42,7 @@ class App extends React.Component {
     const orderedItems = Object.keys(order); // [3,2]
 
     if (orderedItems.length !== 0) {
-      const basketItems = menuItems.filter(menuItem =>
+      const basketItems = Object.values(menuItems).filter(menuItem =>
         orderedItems.includes(menuItem.id.toString())
       );
 
@@ -104,7 +104,7 @@ class App extends React.Component {
 
   handleOrder(e) {
     e.preventDefault();
-    fetch("/order", {
+    fetch("/orders", {
       method: "POST",
       body: JSON.stringify(this.state.currentOrder),
       headers: {
@@ -120,7 +120,7 @@ class App extends React.Component {
         <div>{this.displayCurrentOrderQuantity()}</div>
         <ul className="menuItemList">
           <form className="menuItemList__form">
-            {this.state.menu.map(item => (
+            {Object.values(this.state.menu).map(item => (
               <MenuItems
                 key={item.id}
                 item={item}
@@ -144,7 +144,7 @@ class App extends React.Component {
             </div>
           </form>
         </ul>
-        <OrderReview />
+        <OrderHistory menu={this.state.menu} />
       </div>
     );
   }

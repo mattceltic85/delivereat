@@ -49,7 +49,7 @@ const menu = {
   }
 };
 
-const orders = [];
+const orders = {};
 
 app.get("/", function(req, res) {
   res.render("index");
@@ -59,17 +59,25 @@ app.get("/menu", function(req, res) {
   res.json(menu);
 });
 
-app.post("/order", function(req, res) {
-  console.log("req.body", req.body);
-  orders.push(req.body);
-  res.json({ orders: orders });
+app.post("/orders", function(req, res) {
+  // console.log("req.body", req.body);
+  // orders.push(req.body);
+  // console.log("orders", orders);
+  const keys = Object.keys(orders);
+  const id = keys.length ? +keys.pop() + 1 : 1;
+  const order = { id, items: req.body };
+  orders[id] = order;
+
+  res.status(204).json({ order });
 });
 
 app.get("/orders", function(req, res) {
-  const person = { name: "matt", age: 39, food: "meat" };
-  // [{1: 2}, {}]
-  const stringifiedOrders = orders.map(order => JSON.stringify(order));
-  res.render("order-history", { orders: stringifiedOrders });
+  res.json(orders);
+});
+
+app.delete("/orders", function(req, res) {
+  delete orders[req.body.toDelete];
+  res.json(orders);
 });
 
 app.listen(8080, function() {

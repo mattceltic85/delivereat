@@ -7,7 +7,7 @@
     "test": "jest",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "server-watch": "nodemon server.js",
+    "server-watch": "nodemon server.js -i static",
     "dev-watch": "npm run dev -- --watch"
   },
   "author": "",
